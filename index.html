@@ -3,9 +3,10 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>My Project – Sponsors</title>
+  <title>AstroProject – Sponsors & Portfolio</title>
   <link rel="stylesheet" href="style.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="icon" href="favicon.png" type="image/png">
 </head>
 <body>
 
@@ -13,53 +14,117 @@
   <header class="hero">
     <div class="container">
       <img src="logo.png" alt="Project Logo" class="logo" />
-      <h1>My Awesome Project</h1>
-      <p>Building the future of open-source tools. <br>Thank you to our amazing sponsors!</p>
-      <a href="https://github.com/your-username/your-repo" class="btn">View on GitHub</a>
+      <h1>AstroProject</h1>
+      <p class="tagline">Advancing open-source astronomy tools for the next generation of stargazers.</p>
+      <div class="social">
+        <a href="https://github.com/your-username" target="_blank">GitHub</a>
+        <a href="mailto:you@example.com">Email</a>
+      </div>
     </div>
   </header>
 
   <!-- SPONSORS -->
-  <section class="sponsors">
+  <section class="section sponsors">
     <div class="container">
+      <h2>Sponsors</h2>
+      <p class="section-desc">Thank you to our stellar supporters.</p>
 
-      <!-- GOLD TIER -->
-      <h2>Gold Sponsors</h2>
       <div class="tier gold">
-        <a href="https://example.com" target="_blank">
-          <img src="sponsors/company1.png" alt="Company 1" />
-        </a>
-        <a href="https://example.com" target="_blank">
-          <img src="sponsors/company2.png" alt="Company 2" />
-        </a>
+        <h3>Gold</h3>
+        <div class="logos">
+          <a href="#" target="_blank"><img src="sponsors/company1.png" alt="Gold Sponsor 1" /></a>
+          <a href="#" target="_blank"><img src="sponsors/company2.png" alt="Gold Sponsor 2" /></a>
+        </div>
       </div>
 
-      <!-- SILVER TIER -->
-      <h2>Silver Sponsors</h2>
       <div class="tier silver">
-        <a href="https://example.com" target="_blank">
-          <img src="sponsors/startup1.png" alt="Startup 1" />
-        </a>
-        <a href="https://example.com" target="_blank">
-          <img src="sponsors/dev2.png" alt="Dev 2" />
-        </a>
-        <a href="https://example.com" target="_blank">
-          <img src="sponsors/team3.png" alt="Team 3" />
-        </a>
+        <h3>Silver</h3>
+        <div class="logos">
+          <a href="#" target="_blank"><img src="sponsors/startup1.png" alt="Silver 1" /></a>
+          <a href="#" target="_blank"><img src="sponsors/team1.png" alt="Silver 2" /></a>
+          <a href="#" target="_blank"><img src="sponsors/dev1.png" alt="Silver 3" /></a>
+        </div>
       </div>
 
-      <!-- BECOME A SPONSOR -->
-      <div class="cta">
-        <h3>Want to sponsor us?</h3>
-        <a href="mailto:you@example.com" class="btn">Contact Us</a>
+      <div class="cta-sponsor">
+        <a href="mailto:you@example.com" class="btn">Become a Sponsor</a>
       </div>
-
     </div>
   </section>
 
-  <footer>
-    <p>Made with ❤️ by <a href="https://github.com/HeyImK">HeyImk</a></p>
-  </footer>
+  <!-- PROJECTS -->
+  <section class="section projects">
+    <div class="container">
+      <h2>Projects</h2>
+      <p class="section-desc">Active and completed missions.</p>
 
-</body>
-</html>
+      <div class="project-grid">
+        <!-- Ongoing -->
+        <div class="project-card ongoing">
+          <h3>StarMapper v3</h3>
+          <p>Real-time sky mapping with AI-powered star identification.</p>
+          <span class="status">Ongoing</span>
+          <a href="https://github.com/your-username/starmapper" target="_blank" class="link">View on GitHub →</a>
+        </div>
+
+        <div class="project-card ongoing">
+          <h3>ExoLens</h3>
+          <p>Lightweight telescope lens simulator for mobile devices.</p>
+          <span class="status">Ongoing</span>
+          <a href="#" target="_blank" class="link">View on GitHub →</a>
+        </div>
+
+        <!-- Previous -->
+        <div class="project-card">
+          <h3>DeepSky DB</h3>
+          <p>Open database of 10,000+ deep-sky objects.</p>
+          <span class="status completed">Completed</span>
+          <a href="#" target="_blank" class="link">View on GitHub →</a>
+        </div>
+
+        <div class="project-card">
+          <h3>NightSky CLI</h3>
+          <p>Terminal tool for stargazing forecasts.</p>
+          <span class="status completed">Completed</span>
+          <a href="#" target="_blank" class="link">View on GitHub →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TEAMS -->
+  <section class="section teams">
+    <div class="container">
+      <h2>Teams & Affiliations</h2>
+      <p class="section-desc">Collaborating with the best in the field.</p>
+
+      <div class="team-grid">
+        <div class="team">
+          <img src="teams/iau.png" alt="IAU" />
+          <div>
+            <h4>International Astronomical Union</h4>
+            <p>Working Group on Open Data</p>
+          </div>
+        </div>
+        <div class="team">
+          <img src="teams/nasa.png" alt="NASA" />
+          <div>
+            <h4>NASA Open Source</h4>
+            <p>Contributor to Astrophysics Tools</p>
+          </div>
+        </div>
+        <div class="team">
+          <img src="teams/eso.png" alt="ESO" />
+          <div>
+            <h4>European Southern Observatory</h4>
+            <p>Data Pipeline Collaboration</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container">
+      <p>Made with <span class="heart">❤️</span> and starlight by <a href="https://github.com/your-username" target="_blank">your
