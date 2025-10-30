@@ -1,92 +1,97 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Projects – HeyImK</title>
-  <link rel="stylesheet" href="style.css" />
+  <script src="https://cdn.tailwindcss.com"></script>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 </head>
-<body>
+<body class="bg-black text-white">
 
-  <nav class="nav">
-    <div class="container">
-      <a href="index.html" class="logo">HeyImK</a>
-      <div class="links">
-        <a href="index.html">Home</a>
-        <a href="projects.html" class="active">Projects</a>
-        <a href="progress.html">Progress</a>
+  <nav class="fixed top-0 w-full z-50 bg-black/80 backdrop-blur-xl border-b border-white/10">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-between items-center h-16">
+        <a href="index.html" class="text-xl font-bold text-cyan-400">HeyImK</a>
+        <div class="flex space-x-8">
+          <a href="index.html" class="text-sm font-medium text-white/80 hover:text-white">Home</a>
+          <a href="projects.html" class="text-sm font-medium text-white">Projects</a>
+          <a href="progress.html" class="text-sm font-medium text-white/80 hover:text-white">Progress</a>
+        </div>
       </div>
     </div>
   </nav>
 
-  <!-- BENTO GRID -->
-  <section class="section bento">
-    <div class="container">
-      <h2>Projects</h2>
-      <p class="section-desc">Open-source, documented, and pushing boundaries.</p>
+  <section class="pt-32 pb-24 px-6">
+    <div class="max-w-7xl mx-auto">
+      <h2 class="text-5xl font-bold text-center mb-4">Projects</h2>
+      <p class="text-center text-gray-400 mb-16 max-w-2xl mx-auto">
+        Open-source, documented, and pushing the boundaries of hardware.
+      </p>
 
-      <div class="bento-grid">
+      <!-- BENTO GRID -->
+      <div class="grid w-full auto-rows-[22rem] grid-cols-3 gap-4 max-w-7xl mx-auto">
 
-        <!-- anyon_e Laptop -->
-        <div class="bento-card">
-          <div class="bento-bg">
-            <img src="projects/anyon_e.jpg" alt="anyon_e" />
+        <!-- anyon_e -->
+        <div class="group relative col-span-3 lg:col-span-1 flex flex-col justify-between overflow-hidden rounded-xl bg-white dark:bg-black [box-shadow:0_0_0_1px_rgba(0,0,0,.03),0_2px_4px_rgba(0,0,0,.05),0_12px_24px_rgba(0,0,0,.05)] dark:[border:1px_solid_rgba(255,255,255,.1)] dark:[box-shadow:0_-20px_80px_-20px_#ffffff1f_inset] transform-gpu">
+          <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition"></div>
+          <img src="projects/anyon_e.jpg" alt="anyon_e" class="w-full h-full object-cover" />
+          <div class="pointer-events-none z-10 flex transform-gpu flex-col gap-1 p-6 transition-all duration-300 group-hover:-translate-y-10">
+            <div class="h-12 w-12 bg-cyan-400/20 rounded-lg flex items-center justify-center text-2xl">Laptop</div>
+            <h3 class="text-xl font-semibold text-white">anyon_e Laptop</h3>
+            <p class="text-gray-400">RK3588, 4K AMOLED, <18mm, world’s thinnest keyboard.</p>
           </div>
-          <div class="bento-content">
-            <div class="icon">Laptop</div>
-            <h3>anyon_e Laptop</h3>
-            <p>RK3588, 4K AMOLED, <18mm, world’s thinnest keyboard.</p>
-          </div>
-          <div class="bento-cta">
-            <a href="https://github.com/HeyImK/anyon-e" target="_blank">
-              View Project <span class="arrow">Right Arrow</span>
+          <div class="pointer-events-none absolute bottom-0 flex w-full translate-y-10 transform-gpu flex-row items-center p-4 opacity-0 transition-all duration-300 group-hover:translate-y-0 group-hover:opacity-100">
+            <a href="https://github.com/HeyImK/anyon-e" class="pointer-events-auto inline-flex items-center gap-2 text-sm font-medium text-cyan-400">
+              View Project
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
             </a>
           </div>
+          <div class="pointer-events-none absolute inset-0 transform-gpu transition-all duration-300 group-hover:bg-black/[.03] dark:group-hover:bg-neutral-800/10"></div>
         </div>
 
         <!-- Humanoid & Quadruped -->
-        <div class="bento-card span-2">
-          <div class="bento-bg">
-            <iframe src="https://my.spline.design/robot-3d-model-copy-8f8e8d8f8e8d8f8e8d8f8e8d8f8e8d8f/" frameborder="0" class="spline-embed"></iframe>
+        <div class="group relative col-span-3 lg:col-span-2 flex flex-col justify-between overflow-hidden rounded-xl bg-white dark:bg-black [box-shadow:0_0_0_1px_rgba(0,0,0,.03),0_2px_4px_rgba(0,0,0,.05),0_12px_24px_rgba(0,0,0,.05)] dark:[border:1px_solid_rgba(255,255,255,.1)] dark:[box-shadow:0_-20px_80px_-20px_#ffffff1f_inset] transform-gpu">
+          <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition"></div>
+          <iframe src="https://my.spline.design/robot-3d-model-copy-8f8e8d8f8e8d8f8e8d8f8e8d8f8e8d8f/" class="w-full h-full" frameborder="0"></iframe>
+          <div class="pointer-events-none z-10 flex transform-gpu flex-col gap-1 p-6 transition-all duration-300 group-hover:-translate-y-10">
+            <div class="h-12 w-12 bg-purple-400/20 rounded-lg flex items-center justify-center text-2xl">Robot</div>
+            <h3 class="text-xl font-semibold text-white">Open Source Humanoid & Quadruped</h3>
+            <p class="text-gray-400">Modular, ROS2-ready, 3D-printable robotics platform.</p>
           </div>
-          <div class="bento-content">
-            <div class="icon">Robot</div>
-            <h3>Open Source Humanoid & Quadruped Platform</h3>
-            <p>Modular, ROS2-ready, 3D-printable robotics platform.</p>
-          </div>
-          <div class="bento-cta">
-            <a href="#" target="_blank">
-              Explore <span class="arrow">Right Arrow</span>
+          <div class="pointer-events-none absolute bottom-0 flex w-full translate-y-10 transform-gpu flex-row items-center p-4 opacity-0 transition-all duration-300 group-hover:translate-y-0 group-hover:opacity-100">
+            <a href="#" class="pointer-events-auto inline-flex items-center gap-2 text-sm font-medium text-purple-400">
+              Explore
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
             </a>
           </div>
+          <div class="pointer-events-none absolute inset-0 transform-gpu transition-all duration-300 group-hover:bg-black/[.03] dark:group-hover:bg-neutral-800/10"></div>
         </div>
 
         <!-- Keyboard -->
-        <div class="bento-card">
-          <div class="bento-bg">
-            <img src="projects/keyboard.jpg" alt="Keyboard" />
+        <div class="group relative col-span-3 lg:col-span-1 flex flex-col justify-between overflow-hidden rounded-xl bg-white dark:bg-black [box-shadow:0_0_0_1px_rgba(0,0,0,.03),0_2px_4px_rgba(0,0,0,.05),0_12px_24px_rgba(0,0,0,.05)] dark:[border:1px_solid_rgba(255,255,255,.1)] dark:[box-shadow:0_-20px_80px_-20px_#ffffff1f_inset] transform-gpu">
+          <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition"></div>
+          <img src="projects/keyboard.jpg" alt="Keyboard" class="w-full h-full object-cover" />
+          <div class="pointer-events-none z-10 flex transform-gpu flex-col gap-1 p-6 transition-all duration-300 group-hover:-translate-y-10">
+            <div class="h-12 w-12 bg-green-400/20 rounded-lg flex items-center justify-center text-2xl">Keyboard</div>
+            <h3 class="text-xl font-semibold text-white">Wireless Mechanical Keyboard</h3>
+            <p class="text-gray-400">nRF52840 + Cherry ULP – ultra-thin, open firmware.</p>
           </div>
-          <div class="bento-content">
-            <div class="icon">Keyboard</div>
-            <h3>Wireless Mechanical Keyboard</h3>
-            <p>nRF52840 + Cherry ULP – ultra-thin, open firmware.</p>
-          </div>
-          <div class="bento-cta">
-            <a href="#" target="_blank">
-              View on GitHub <span class="arrow">Right Arrow</span>
+          <div class="pointer-events-none absolute bottom-0 flex w-full translate-y-10 transform-gpu flex-row items-center p-4 opacity-0 transition-all duration-300 group-hover:translate-y-0 group-hover:opacity-100">
+            <a href="#" class="pointer-events-auto inline-flex items-center gap-2 text-sm font-medium text-green-400">
+              View on GitHub
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
             </a>
           </div>
+          <div class="pointer-events-none absolute inset-0 transform-gpu transition-all duration-300 group-hover:bg-black/[.03] dark:group-hover:bg-neutral-800/10"></div>
         </div>
 
       </div>
     </div>
   </section>
 
-  <footer>
-    <div class="container">
-      <p><a href="index.html">← Back to Home</a></p>
-    </div>
+  <footer class="py-12 text-center border-t border-white/10">
+    <p class="text-sm text-gray-400"><a href="index.html" class="text-cyan-400">← Back to Home</a></p>
   </footer>
 
 </body>
