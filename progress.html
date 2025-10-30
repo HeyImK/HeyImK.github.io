@@ -9,7 +9,6 @@
 </head>
 <body>
 
-  <!-- NAV -->
   <nav class="nav">
     <div class="container">
       <a href="index.html" class="logo">HeyImK</a>
@@ -21,25 +20,54 @@
     </div>
   </nav>
 
-  <!-- PROGRESS -->
-  <section class="section progress-page">
+  <section class="timeline-section">
     <div class="container">
       <h2>Project Progress</h2>
-      <p class="section-desc">Live updates on anyon_e and other missions.</p>
+      <p class="section-desc">Live updates. Scroll to reveal.</p>
+    </div>
 
-      <div class="progress-item">
-        <h3>anyon_e Laptop</h3>
-        <ul class="milestones">
-          <li><span class="date">Oct 28, 2025</span> – Finalized RK3588 motherboard schematic</li>
-          <li><span class="date">Oct 25, 2025</span> – Keyboard PCB layout complete</li>
-          <li><span class="date">Oct 20, 2025</span> – Received 4K AMOLED panel sample</li>
-          <li><span class="date">Oct 15, 2025</span> – Chassis CNC prototype arrived</li>
-          <!-- Add new updates at the top -->
-        </ul>
+    <div class="timeline-container">
+      <div class="timeline-wrapper">
+        <div class="timeline-entry">
+          <div class="entry-dot"><div class="dot-inner"></div></div>
+          <div class="entry-content">
+            <h3 class="entry-title">Oct 30, 2025</h3>
+            <div class="entry-text">RK3588 SoC fully integrated. USB-C PD + battery controller working.</div>
+          </div>
+        </div>
+        <div class="timeline-entry">
+          <div class="entry-dot"><div class="dot-inner"></div></div>
+          <div class="entry-content">
+            <h3 class="entry-title">Oct 25, 2025</h3>
+            <div class="entry-text">Keyboard PCB layout complete. Cherry ULP switches tested.</div>
+          </div>
+        </div>
+        <div class="timeline-entry">
+          <div class="entry-dot"><div class="dot-inner"></div></div>
+          <div class="entry-content">
+            <h3 class="entry-title">Oct 20, 2025</h3>
+            <div class="entry-text">4K AMOLED panel sample arrived. Trackpad calibrated.</div>
+          </div>
+        </div>
+        <div class="timeline-entry">
+          <div class="entry-dot"><div class="dot-inner"></div></div>
+          <div class="entry-content">
+            <h3 class="entry-title">Oct 15, 2025</h3>
+            <div class="entry-text">Chassis CNC prototype received. <18mm thick.</div>
+          </div>
+        </div>
       </div>
-
+      <div class="timeline-line"></div>
     </div>
   </section>
+
+  <script>
+    const wrapper = document.querySelector('.timeline-wrapper');
+    const line = document.querySelector('.timeline-line');
+    if (wrapper && line) {
+      line.style.setProperty('--timeline-height', wrapper.offsetHeight + 'px');
+    }
+  </script>
 
   <footer>
     <div class="container">
