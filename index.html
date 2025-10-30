@@ -1,83 +1,120 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>HeyImK – Karthik Nair</title>
-  <link rel="stylesheet" href="style.css" />
+  <!-- Tailwind CDN (21st.dev style) -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            border: "hsl(var(--border))",
+            input: "hsl(var(--input))",
+            ring: "hsl(var(--ring))",
+            background: "hsl(var(--background))",
+            foreground: "hsl(var(--foreground))",
+          },
+        }
+      }
+    }
+  </script>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>K</text></svg>">
+  <style>
+    :root {
+      --background: 0 0% 0%;
+      --foreground: 0 0% 98%;
+      --border: 0 0% 14.9%;
+    }
+    .dark {
+      --background: 0 0% 3.9%;
+      --foreground: 0 0% 98%;
+      --border: 0 0% 14.9%;
+    }
+  </style>
 </head>
-<body>
+<body class="bg-black text-white font-sans antialiased">
 
   <!-- NAV -->
-  <nav class="nav">
-    <div class="container">
-      <a href="index.html" class="logo">HeyImK</a>
-      <div class="links">
-        <a href="index.html" class="active">Home</a>
-        <a href="projects.html">Projects</a>
-        <a href="progress.html">Progress</a>
+  <nav class="fixed top-0 w-full z-50 bg-black/80 backdrop-blur-xl border-b border-white/10">
+    <div class="max-w-7xl mx-auto px-4 sm ecol:px-6 lg:px-8">
+      <div class="flex justify-between items-center h-16">
+        <a href="index.html" class="text-xl font-bold text-cyan-400">HeyImK</a>
+        <div class="flex space-x-8">
+          <a href="index.html" class="text-sm font-medium text-white/80 hover:text-white transition">Home</a>
+          <a href="projects.html" class="text-sm font-medium text-white/80 hover:text-white transition">Projects</a>
+          <a href="progress.html" class="text-sm font-medium text-white/80 hover:text-white transition">Progress</a>
+        </div>
       </div>
     </div>
   </nav>
 
   <!-- HERO -->
-  <header class="hero">
-    <div class="container">
-      <h1 class="greeting">Hi there, I'm <span class="name">Karthik Nair</span></h1>
-      <p class="tagline">Open-source hardware engineer. Building the impossible.</p>
-      <p class="mission">Attempt the impossible.</p>
-      <div class="social">
-        <a href="https://github.com/HeyImK" target="_blank">GitHub</a>
-        <a href="mailto:karthiknair121232@gmail.com">Email</a>
-        <a href="https://linkedin.com/in/karthik-nair" target="_blank">LinkedIn</a>
+  <header class="relative min-h-screen flex items-center justify-center overflow-hidden">
+    <div class="absolute inset-0 bg-gradient-to-br from-cyan-900/20 via-transparent to-purple-900/20"></div>
+    <div class="relative z-10 text-center px-6">
+      <h1 class="text-5xl md:text-7xl font-bold mb-6">
+        Hi there, I'm <span class="text-cyan-400">Karthik Nair</span>
+      </h1>
+      <p class="text-xl md:text-2xl text-gray-300 mb-8 max-w-3xl mx-auto">
+        Open-source hardware engineer building the impossible.
+      </p>
+      <p class="text-2xl italic text-cyan-400 mb-12">Attempt the impossible.</p>
+      <div class="flex justify-center space-x-6">
+        <a href="https://github.com/HeyImK" class="text-cyan-400 hover:text-white font-mono text-sm">GitHub</a>
+        <a href="mailto:karthiknair121232@gmail.com" class="text-cyan-400 hover:text-white font-mono text-sm">Email</a>
+        <a href="#" class="text-cyan-400 hover:text-white font-mono text-sm">LinkedIn</a>
       </div>
     </div>
   </header>
 
   <!-- SPONSORS -->
-  <section class="section sponsors">
-    <div class="container">
-      <h2>Sponsors</h2>
-      <p class="section-desc">Powered by amazing partners.</p>
-      <div class="tier gold">
-        <h3>Gold</h3>
-        <div class="logos">
-          <a href="https://www.elcrow.com" target="_blank"><img src="sponsors/elcrow.png" alt="Elcrow" /></a>
-          <a href="https://www.youyeetoo.com" target="_blank"><img src="sponsors/youyeetoo.png" alt="Youyeetoo" /></a>
-          <a href="https://3idea.in" target="_blank"><img src="sponsors/3idea.png" alt="3idea Technologies" /></a>
-        </div>
+  <section class="py-24 px-6">
+    <div class="max-w-7xl mx-auto">
+      <h2 class="text-4xl font-bold text-center mb-4">Sponsors</h2>
+      <p class="text-center text-gray-400 mb-12">Powered by amazing partners.</p>
+      <div class="flex flex-wrap justify-center gap-8">
+        <a href="https://elcrow.com" target="_blank" class="bg-white/5 p-6 rounded-2xl border border-white/10 hover:border-cyan-400/50 transition">
+          <img src="sponsors/elcrow.png" alt="Elcrow" class="h-12" />
+        </a>
+        <a href="https://youyeetoo.com" target="_blank" class="bg-white/5 p-6 rounded-2xl border border-white/10 hover:border-cyan-400/50 transition">
+          <img src="sponsors/youyeetoo.png" alt="Youyeetoo" class="h-12" />
+        </a>
+        <a href="https://3idea.in" target="_blank" class="bg-white/5 p-6 rounded-2xl border border-white/10 hover:border-cyan-400/50 transition">
+          <img src="sponsors/3idea.png" alt="3idea" class="h-12" />
+        </a>
       </div>
-      <div class="cta-sponsor">
-        <a href="mailto:karthiknair121232@gmail.com" class="btn">Become a Sponsor</a>
+      <div class="text-center mt-12">
+        <a href="mailto:karthiknair121232@gmail.com" class="inline-block bg-cyan-400 text-black px-8 py-3 rounded-full font-semibold hover:bg-white transition">
+          Become a Sponsor
+        </a>
       </div>
     </div>
   </section>
 
   <!-- TEAM -->
-  <section class="section teams">
-    <div class="container">
-      <h2>Team</h2>
-      <p class="section-desc">Non Sibi. Knowledge and Goodness.</p>
-      <div class="team-grid">
-        <div class="team">
-          <div class="team-icon">V</div>
-          <div>
-            <h4>Team Vishnu</h4>
-            <p>Collaborative hardware innovation group.</p>
-          </div>
+  <section class="py-24 px-6 bg-white/5">
+    <div class="max-w-7xl mx-auto text-center">
+      <h2 class="text-4xl font-bold mb-4">Team</h2>
+      <p class="text-gray-400 mb-12">Non Sibi. Knowledge and Goodness.</p>
+      <div class="inline-flex items-center gap-4 bg-white/10 p-6 rounded-2xl border border-white/10">
+        <div class="w-12 h-12 bg-cyan-400 text-black rounded-full flex items-center justify-center font-bold">V</div>
+        <div class="text-left">
+          <h4 class="font-semibold">Team Vishnu</h4>
+          <p class="text-sm text-gray-400">Collaborative hardware innovation group.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <footer>
-    <div class="container">
-      <p class="mission">Attempt the impossible.</p>
-      <p>Made with <span class="heart">Love</span> by <a href="https://github.com/HeyImK">HeyImK</a></p>
-      <p>© 2025 Karthik Nair. All rights reserved.</p>
-    </div>
+  <footer class="py-12 text-center border-t border-white/10">
+    <p class="text-sm text-gray-400">
+      Made with <span class="text-red-500">Love</span> by <a href="https://github.com/HeyImK" class="text-cyan-400">HeyImK</a>
+    </p>
+    <p class="text-xs text-gray-500 mt-2">© 2025 Karthik Nair. All rights reserved.</p>
   </footer>
 
 </body>
