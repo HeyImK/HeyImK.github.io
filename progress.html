@@ -1,79 +1,96 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Progress – HeyImK</title>
-  <link rel="stylesheet" href="style.css" />
+  <script src="https://cdn.tailwindcss.com"></script>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 </head>
-<body>
+<body class="bg-neutral-950 text-white">
 
-  <nav class="nav">
-    <div class="container">
-      <a href="index.html" class="logo">HeyImK</a>
-      <div class="links">
-        <a href="index.html">Home</a>
-        <a href="projects.html">Projects</a>
-        <a href="progress.html" class="active">Progress</a>
+  <nav class="fixed top-0 w-full z-50 bg-neutral-950/80 backdrop-blur-xl border-b border-white/10">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-between items-center h-16">
+        <a href="index.html" class="text-xl font-bold text-cyan-400">HeyImK</a>
+        <div class="flex space-x-8">
+          <a href="index.html" class="text-sm font-medium text-white/80 hover:text-white">Home</a>
+          <a href="projects.html" class="text-sm font-medium text-white/80 hover:text-white">Projects</a>
+          <a href="progress.html" class="text-sm font-medium text-white">Progress</a>
+        </div>
       </div>
     </div>
   </nav>
 
-  <section class="timeline-section">
-    <div class="container">
-      <h2>Project Progress</h2>
-      <p class="section-desc">Live updates. Scroll to reveal.</p>
+  <div class="w-full bg-neutral-950 font-sans md:px-10" id="container">
+    <div class="max-w-7xl mx-auto py-20 px-4 md:px-8 lg:px-10">
+      <h2 class="text-lg md:text-4xl mb-4 text-white max-w-4xl">
+        Changelog from my journey
+      </h2>
+      <p class="text-neutral-300 text-sm md:text-base max-w-sm">
+        Building anyon_e from scratch. Here’s the timeline.
+      </p>
     </div>
 
-    <div class="timeline-container">
-      <div class="timeline-wrapper">
-        <div class="timeline-entry">
-          <div class="entry-dot"><div class="dot-inner"></div></div>
-          <div class="entry-content">
-            <h3 class="entry-title">Oct 30, 2025</h3>
-            <div class="entry-text">RK3588 SoC fully integrated. USB-C PD + battery controller working.</div>
+    <div class="relative max-w-7xl mx-auto pb-20" id="timeline">
+      <!-- Entries -->
+      <div class="flex justify-start pt-10 md:pt-40 md:gap-10">
+        <div class="sticky flex flex-col md:flex-row z-40 items-center top-40 self-start max-w-xs lg:max-w-sm md:w-full">
+          <div class="h-10 absolute left-3 md:left-3 w-10 rounded-full bg-black flex items-center justify-center">
+            <div class="h-4 w-4 rounded-full bg-neutral-800 border border-neutral-700"></div>
           </div>
+          <h3 class="hidden md:block text-xl md:pl-20 md:text-5xl font-bold text-neutral-500">Oct 30</h3>
         </div>
-        <div class="timeline-entry">
-          <div class="entry-dot"><div class="dot-inner"></div></div>
-          <div class="entry-content">
-            <h3 class="entry-title">Oct 25, 2025</h3>
-            <div class="entry-text">Keyboard PCB layout complete. Cherry ULP switches tested.</div>
-          </div>
-        </div>
-        <div class="timeline-entry">
-          <div class="entry-dot"><div class="dot-inner"></div></div>
-          <div class="entry-content">
-            <h3 class="entry-title">Oct 20, 2025</h3>
-            <div class="entry-text">4K AMOLED panel sample arrived. Trackpad calibrated.</div>
-          </div>
-        </div>
-        <div class="timeline-entry">
-          <div class="entry-dot"><div class="dot-inner"></div></div>
-          <div class="entry-content">
-            <h3 class="entry-title">Oct 15, 2025</h3>
-            <div class="entry-text">Chassis CNC prototype received. <18mm thick.</div>
-          </div>
+        <div class="relative pl-20 pr-4 md:pl-4 w-full">
+          <h3 class="md:hidden block text-2xl mb-4 text-left font-bold text-neutral-500">Oct 30</h3>
+          <p class="text-neutral-300">RK3588 SoC integrated with USB-C PD and battery controller.</p>
         </div>
       </div>
-      <div class="timeline-line"></div>
+
+      <div class="flex justify-start pt-10 md:pt-40 md:gap-10">
+        <div class="sticky flex flex-col md:flex-row z-40 items-center top-40 self-start max-w-xs lg:max-w-sm md:w-full">
+          <div class="h-10 absolute left-3 md:left-3 w-10 rounded-full bg-black flex items-center justify-center">
+            <div class="h-4 w-4 rounded-full bg-neutral-800 border border-neutral-700"></div>
+          </div>
+          <h3 class="hidden md:block text-xl md:pl-20 md:text-5xl font-bold text-neutral-500">Oct 25</h3>
+        </div>
+        <div class="relative pl-20 pr-4 md:pl-4 w-full">
+          <h3 class="md:hidden block text-2xl mb-4 text-left font-bold text-neutral-500">Oct 25</h3>
+          <p class="text-neutral-300">Keyboard PCB layout complete. Cherry ULP switches tested.</p>
+        </div>
+      </div>
+
+      <!-- Add more -->
+
+      <!-- LINE -->
+      <div id="line" class="absolute md:left-8 left-8 top-0 overflow-hidden w-[2px] bg-[linear-gradient(to_bottom,var(--tw-gradient-stops))] from-transparent via-neutral-700 to-transparent [mask-image:linear-gradient(to_bottom,transparent_0%,black_10%,black_90%,transparent_100%)]">
+        <div id="progress" class="absolute inset-x-0 top-0 w-[2px] bg-gradient-to-t from-purple-500 via-blue-500 to-transparent from-[0%] via-[10%] rounded-full"></div>
+      </div>
     </div>
-  </section>
+  </div>
 
   <script>
-    const wrapper = document.querySelector('.timeline-wrapper');
-    const line = document.querySelector('.timeline-line');
-    if (wrapper && line) {
-      line.style.setProperty('--timeline-height', wrapper.offsetHeight + 'px');
-    }
-  </script>
+    const container = document.getElementById('container');
+    const timeline = document.getElementById('timeline');
+    const line = document.getElementById('line');
+    const progress = document.getElementById('progress');
 
-  <footer>
-    <div class="container">
-      <p><a href="index.html">← Back to Home</a></p>
-    </div>
-  </footer>
+    const updateLine = () => {
+      const rect = timeline.getBoundingClientRect();
+      const height = rect.height;
+      line.style.height = `${height}px`;
+
+      const scrollY = window.scrollY;
+      const start = container.offsetTop;
+      const end = start + container.offsetHeight - window.innerHeight;
+      const progressValue = Math.min(Math.max((scrollY - start) / (end - start), 0), 1);
+      progress.style.transform = `scaleY(${progressValue})`;
+    };
+
+    window.addEventListener('scroll', updateLine);
+    window.addEventListener('resize', updateLine);
+    updateLine();
+  </script>
 
 </body>
 </html>
