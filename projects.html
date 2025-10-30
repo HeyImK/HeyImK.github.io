@@ -9,7 +9,6 @@
 </head>
 <body>
 
-  <!-- NAV -->
   <nav class="nav">
     <div class="container">
       <a href="index.html" class="logo">HeyImK</a>
@@ -21,35 +20,66 @@
     </div>
   </nav>
 
-  <!-- PROJECTS -->
-  <section class="section projects-page">
+  <!-- BENTO GRID -->
+  <section class="section bento">
     <div class="container">
-      <h2>Completed Projects</h2>
-      <p class="section-desc">Fully open-source, documented, and shipped.</p>
+      <h2>Projects</h2>
+      <p class="section-desc">Open-source, documented, and pushing boundaries.</p>
 
-      <div class="project-full">
-        <h3>4K AMOLED Display Driver</h3>
-        <p>Custom driver for 13.3" 330 PPI panel with Azoteq trackpad integration.</p>
-        <div class="engineered">Engineered with: RK3588, Linux Kernel, C</div>
-        <div class="links">
-          <a href="#" target="_blank">GitHub</a>
-          <a href="#" target="_blank">Instructables</a>
-          <a href="#" target="_blank">Hackster</a>
+      <div class="bento-grid">
+
+        <!-- anyon_e Laptop -->
+        <div class="bento-card">
+          <div class="bento-bg">
+            <img src="projects/anyon_e.jpg" alt="anyon_e" />
+          </div>
+          <div class="bento-content">
+            <div class="icon">Laptop</div>
+            <h3>anyon_e Laptop</h3>
+            <p>RK3588, 4K AMOLED, <18mm, world’s thinnest keyboard.</p>
+          </div>
+          <div class="bento-cta">
+            <a href="https://github.com/HeyImK/anyon-e" target="_blank">
+              View Project <span class="arrow">Right Arrow</span>
+            </a>
+          </div>
         </div>
-      </div>
 
-      <div class="project-full">
-        <h3>Anodized Aluminum Chassis</h3>
-        <p>CNC-machined &lt;18mm enclosure with thermal optimization and 60Wh battery.</p>
-        <div class="engineered">Engineered with: Fusion 360, CNC, Aluminum 6061</div>
-        <div class="links">
-          <a href="#" target="_blank">GitHub</a>
-          <a href="#" target="_blank">Instructables</a>
-          <a href="#" target="_blank">Hackster</a>
+        <!-- Humanoid & Quadruped -->
+        <div class="bento-card span-2">
+          <div class="bento-bg">
+            <iframe src="https://my.spline.design/robot-3d-model-copy-8f8e8d8f8e8d8f8e8d8f8e8d8f8e8d8f/" frameborder="0" class="spline-embed"></iframe>
+          </div>
+          <div class="bento-content">
+            <div class="icon">Robot</div>
+            <h3>Open Source Humanoid & Quadruped Platform</h3>
+            <p>Modular, ROS2-ready, 3D-printable robotics platform.</p>
+          </div>
+          <div class="bento-cta">
+            <a href="#" target="_blank">
+              Explore <span class="arrow">Right Arrow</span>
+            </a>
+          </div>
         </div>
-      </div>
 
-      <!-- Add more projects here -->
+        <!-- Keyboard -->
+        <div class="bento-card">
+          <div class="bento-bg">
+            <img src="projects/keyboard.jpg" alt="Keyboard" />
+          </div>
+          <div class="bento-content">
+            <div class="icon">Keyboard</div>
+            <h3>Wireless Mechanical Keyboard</h3>
+            <p>nRF52840 + Cherry ULP – ultra-thin, open firmware.</p>
+          </div>
+          <div class="bento-cta">
+            <a href="#" target="_blank">
+              View on GitHub <span class="arrow">Right Arrow</span>
+            </a>
+          </div>
+        </div>
+
+      </div>
     </div>
   </section>
 
