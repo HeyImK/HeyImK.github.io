@@ -1,71 +1,82 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Projects – HeyImK</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Robots - Hi-Forge</title>
+    <link rel="stylesheet" href="style.css">
 </head>
-<body class="bg-black text-white">
+<body>
+    <div class="stars"></div>
+    <header>
+        <nav>
+            <div class="logo">
+                <img src="path/to/hi-forge-logo.png" alt="Hi-Forge Logo">
+                Hi-Forge
+            </div>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="robots.html">Robots</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="team.html">Team</a></li>
+                <li><a href="downloads.html">Downloads</a></li>
+                <li><a href="documentation.html">Documentation</a></li>
+                <li><a href="blog.html">Blog</a></li>
+                <li><a href="forum.html">Forum</a></li>
+                <li><a href="contribute.html">Contribute</a></li>
+                <li><a href="sponsors.html">Sponsors</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
 
-  <nav class="fixed top-0 w-full z-50 bg-black/80 backdrop-blur-xl border-b border-white/10">
-    <div class="max-w-7xl mx-auto px-4 flex justify-between items-center h-16">
-      <a href="index.html" class="text-xl font-bold text-cyan-400">HeyImK</a>
-      <div class="flex space-x-8">
-        <a href="index.html" class="text-sm font-medium text-white/80 hover:text-white">Home</a>
-        <a href="projects.html" class="text-sm font-medium text-white">Projects</a>
-        <a href="progress.html" class="text-sm font-medium text-white/80 hover:text-white">Progress</a>
-      </div>
-    </div>
-  </nav>
-
-  <section class="pt-32 pb-24 px-6">
-    <div class="max-w-7xl mx-auto">
-      <h2 class="text-5xl font-bold text-center mb-16">Projects</h2>
-
-      <div class="grid w-full auto-rows-[22rem] grid-cols-3 gap-4">
-
-        <!-- anyon_e -->
-        <div class="group relative col-span-3 lg:col-span-1 flex flex-col justify-between overflow-hidden rounded-xl bg-white dark:bg-black [box-shadow:0_0_0_1px_rgba(0,0,0,.03),0_2px_4px_rgba(0,0,0,.05),0_12px_24px_rgba(0,0,0,.05)] dark:[border:1px_solid_rgba(255,255,255,.1)] dark:[box-shadow:0_-20px_80px_-20px_#ffffff1f_inset]">
-          <img src="projects/anyon_e.jpg" class="w-full h-full object-cover" />
-          <div class="pointer-events-none z-10 p-6 transition-all duration-300 group-hover:-translate-y-10">
-            <div class="h-12 w-12 bg-cyan-400/20 rounded-lg flex items-center justify-center text-2xl">Laptop</div>
-            <h3 class="text-xl font-semibold text-white">anyon_e Laptop</h3>
-            <p class="text-gray-400">RK3588, 4K AMOLED, <18mm.</p>
-          </div>
-          <div class="pointer-events-none absolute bottom-0 flex w-full translate-y-10 p-4 opacity-0 transition-all duration-300 group-hover:translate-y-0 group-hover:opacity-100">
-            <a href="#" class="pointer-events-auto text-cyan-400 text-sm font-medium flex items-center gap-2">
-              View <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
-            </a>
-          </div>
+    <section id="robots">
+        <h2>Our Robots</h2>
+        <div class="robot-grid">
+            <div class="robot-card">
+                <h3>Quadruped Robot</h3>
+                <img src="https://content.instructables.com/FNQ/0PTN/LA13UAMD/FNQ0PTNLA13UAMD.png?auto=webp" alt="Quadruped Render" class="robot-img">
+                <p>Agile four-legged bot for terrain navigation. Specs: Processor - Radxa Rock 5c; Motors - MG995 (8 servos); Power - 5V 40A supply; Sensors - 2 ultrasonic, RPi Lidar C1; Audio - Speaker with custom LM386 amp circuit.</p>
+                <div class="progress-circle">
+                    <svg viewBox="0 0 36 36" class="circle">
+                        <path class="circle-bg" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
+                        <path class="circle-fg" stroke-dasharray="90, 100" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
+                    </svg>
+                    <div class="progress-text">90%</div>
+                </div>
+                <p>Closest to completion!</p>
+            </div>
+            <div class="robot-card">
+                <h3>Humanoid Robot</h3>
+                <iframe title="Humanoid Robot" frameborder="0" allowfullscreen mozallowfullscreen="true" webkitallowfullscreen="true" allow="autoplay; fullscreen; xr-spatial-tracking" xr-spatial-tracking execution-while-out-of-viewport execution-while-not-rendered web-share width="100%" height="300" src="https://sketchfab.com/3d-models/humanoid-robot-385ae553cfda40d1aaadd96d11a19949/embed"></iframe>
+                <p>Human-like bot for advanced interactions. Specs: Processor - LattePanda Iota; Motors - 12 MG995s, 10 SG90; Servo Hat - Generic; Camera - HuskyLens 2 AI module; Power - 5V 40A adjustable supply.</p>
+                <div class="progress-circle">
+                    <svg viewBox="0 0 36 36" class="circle">
+                        <path class="circle-bg" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
+                        <path class="circle-fg" stroke-dasharray="50, 100" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
+                    </svg>
+                    <div class="progress-text">50%</div>
+                </div>
+                <p>In development. (3D model credit: pinguinoconpulgares on Sketchfab)</p>
+            </div>
+            <div class="robot-card">
+                <h3>Desktop Robot</h3>
+                <img src="https://www.stirworld.com/images/see/3460_Eilik_3.jpg" alt="Desktop Robot Render" class="robot-img">
+                <p>Compact bot for home/office tasks. Specs: Processor - Raspberry Pi Zero 2W; Display - 0.96 inch OLED; Motor - 1 MG996; Integration - Master laptop for webcam and personalization.</p>
+                <div class="progress-circle">
+                    <svg viewBox="0 0 36 36" class="circle">
+                        <path class="circle-bg" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
+                        <path class="circle-fg" stroke-dasharray="70, 100" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
+                    </svg>
+                    <div class="progress-text">70%</div>
+                </div>
+                <p>Parts finalizing now.</p>
+            </div>
         </div>
+    </section>
 
-        <!-- Humanoid -->
-        <div class="group relative col-span-3 lg:col-span-2 flex flex-col justify-between overflow-hidden rounded-xl bg-white dark:bg-black [box-shadow:0_0_0_1px_rgba(0,0,0,.03),0_2px_4px_rgba(0,0,0,.05),0_12px_24px_rgba(0,0,0,.05)] dark:[border:1px_solid_rgba(255,255,255,.1)] dark:[box-shadow:0_-20px_80px_-20px_#ffffff1f_inset]">
-          <iframe src="https://my.spline.design/robot-3d-model-copy-8f8e8d8f8e8d8f8e8d8f8e8d8f8e8d8f/" class="w-full h-full" frameborder="0"></iframe>
-          <div class="pointer-events-none z-10 p-6 transition-all duration-300 group-hover:-translate-y-10">
-            <div class="h-12 w-12 bg-purple-400/20 rounded-lg flex items-center justify-center text-2xl">Robot</div>
-            <h3 class="text-xl font-semibold text-white">Open Source Humanoid & Quadruped</h3>
-            <p class="text-gray-400">ROS2, 3D-printable, modular.</p>
-          </div>
-          <div class="pointer-events-none absolute bottom-0 flex w-full translate-y-10 p-4 opacity-0 transition-all duration-300 group-hover:translate-y-0 group-hover:opacity-100">
-            <a href="#" class="pointer-events-auto text-purple-400 text-sm font-medium flex items-center gap-2">
-              Explore <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
-            </a>
-          </div>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- DOCK (same as index.html) -->
-  <div class="dock flex items-end fixed bottom-5 left-1/2 -translate-x-1/2 z-50 bg-black/70 backdrop-blur-2xl px-5 py-3 rounded-full border border-white/10 shadow-2xl">
-    <a href="index.html" class="dock-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg><div class="dock-label">Home</div></a>
-    <a href="projects.html" class="dock-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"></rect><rect x="14" y="3" width="7" height="7"></rect><rect x="14" y="14" width="7" height="7"></rect><rect x="3" y="14" width="7" height="7"></rect></svg><div class="dock-label">Projects</div></a>
-    <a href="progress.html" class="dock-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg><div class="dock-label">Progress</div></a>
-  </div>
-
+    <footer>
+        <p>&copy; 2025 Hi-Forge. Open source forever. 3D model credits: pinguinoconpulgares (Sketchfab).</p>
+    </footer>
 </body>
 </html>
