@@ -5,154 +5,41 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hi-Forge: Open Source Robotics Platform</title>
     <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <div class="stars"></div> <!-- Space stars background -->
+    <div class="stars"></div>
     <header>
         <nav>
-            <div class="logo">Hi-Forge</div>
+            <div class="logo">
+                <img src="path/to/hi-forge-logo.png" alt="Hi-Forge Logo"> <!-- Placeholder; replace with your logo -->
+                Hi-Forge
+            </div>
             <ul>
-                <li><a href="#home">Home</a></li>
-                <li><a href="#robots">Robots</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#team">Team</a></li>
-                <li><a href="#downloads">Downloads</a></li>
-                <li><a href="#docs">Documentation</a></li>
-                <li><a href="#blog">Blog</a></li>
-                <li><a href="#forum">Forum</a></li>
-                <li><a href="#contribute">Contribute</a></li>
-                <li><a href="#contact">Contact</a></li>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="robots.html">Robots</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="team.html">Team</a></li>
+                <li><a href="downloads.html">Downloads</a></li>
+                <li><a href="documentation.html">Documentation</a></li>
+                <li><a href="blog.html">Blog</a></li>
+                <li><a href="forum.html">Forum</a></li>
+                <li><a href="contribute.html">Contribute</a></li>
+                <li><a href="sponsors.html">Sponsors</a></li>
+                <li><a href="contact.html">Contact</a></li>
             </ul>
         </nav>
     </header>
 
-    <section id="home" class="hero">
+    <section class="hero">
         <div class="hero-content">
             <h1>Welcome to Hi-Forge</h1>
             <p>Open source robotics for everyone: Quadruped, Humanoid, and Desktop bots.</p>
-            <a href="#robots" class="cta">Explore Robots</a>
+            <a href="robots.html" class="cta">Explore Robots</a>
         </div>
-    </section>
-
-    <section id="robots">
-        <h2>Our Robots</h2>
-        <div class="robot-grid">
-            <div class="robot-card">
-                <h3>Quadruped Robot</h3>
-                <img src="https://content.instructables.com/FNQ/0PTN/LA13UAMD/FNQ0PTNLA13UAMD.png?auto=webp" alt="Quadruped Render" class="robot-img">
-                <p>Agile four-legged bot for terrain navigation. Specs: Processor - Radxa Rock 5c; Motors - MG995 (8 servos); Power - 5V 40A supply; Sensors - 2 ultrasonic, RPi Lidar C1; Audio - Speaker with custom LM386 amp circuit.</p>
-                <div class="progress-circle">
-                    <svg viewBox="0 0 36 36" class="circle">
-                        <path class="circle-bg" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
-                        <path class="circle-fg" stroke-dasharray="90, 100" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
-                    </svg>
-                    <div class="progress-text">90%</div>
-                </div>
-                <p>Closest to completion!</p>
-            </div>
-            <div class="robot-card">
-                <h3>Humanoid Robot</h3>
-                <!-- Embedded 3D model from Sketchfab -->
-                <iframe title="Humanoid Robot" frameborder="0" allowfullscreen mozallowfullscreen="true" webkitallowfullscreen="true" allow="autoplay; fullscreen; xr-spatial-tracking" xr-spatial-tracking execution-while-out-of-viewport execution-while-not-rendered web-share width="100%" height="300" src="https://sketchfab.com/3d-models/humanoid-robot-385ae553cfda40d1aaadd96d11a19949/embed"></iframe>
-                <p>Human-like bot for advanced interactions. Specs: Processor - LattePanda Iota; Motors - 12 MG995s, 10 SG90; Servo Hat - Generic; Camera - HuskyLens 2 AI module; Power - 5V 40A adjustable supply.</p>
-                <div class="progress-circle">
-                    <svg viewBox="0 0 36 36" class="circle">
-                        <path class="circle-bg" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
-                        <path class="circle-fg" stroke-dasharray="50, 100" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
-                    </svg>
-                    <div class="progress-text">50%</div>
-                </div>
-                <p>In development. (3D model credit: pinguinoconpulgares on Sketchfab)</p>
-            </div>
-            <div class="robot-card">
-                <h3>Desktop Robot</h3>
-                <img src="https://www.stirworld.com/images/see/3460_Eilik_3.jpg" alt="Desktop Robot Render" class="robot-img">
-                <p>Compact bot for home/office tasks. Specs: Processor - Raspberry Pi Zero 2W; Display - 0.96 inch OLED; Motor - 1 MG996; Integration - Master laptop for webcam and personalization.</p>
-                <div class="progress-circle">
-                    <svg viewBox="0 0 36 36" class="circle">
-                        <path class="circle-bg" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
-                        <path class="circle-fg" stroke-dasharray="70, 100" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
-                    </svg>
-                    <div class="progress-text">70%</div>
-                </div>
-                <p>Parts finalizing now.</p>
-            </div>
-        </div>
-    </section>
-
-    <section id="about">
-        <h2>About Hi-Forge</h2>
-        <p>Hi-Forge is an open source platform building accessible robotics. Join the community to contribute code, designs, or ideas.</p>
-        <!-- Embedded GitHub repo card -->
-        <img src="https://gh-card.dev/repos/HeyImK/hi-forge.svg" alt="GitHub Repo Card">
-    </section>
-
-    <section id="team">
-        <h2>Team</h2>
-        <p>Currently led by HeyImK and open source contributors. Want to join? Hit us up in the forum!</p>
-    </section>
-
-    <section id="downloads">
-        <h2>Downloads</h2>
-        <p>Grab the latest releases, designs, and code.</p>
-        <a href="https://github.com/HeyImK/hi-forge/releases" class="cta">View Downloads</a>
-    </section>
-
-    <section id="docs">
-        <h2>Documentation</h2>
-        <p>Detailed guides, APIs, and build instructions.</p>
-        <a href="https://github.com/HeyImK/hi-forge/wiki" class="cta">Read Docs</a>
-    </section>
-
-    <section id="blog">
-        <h2>Blog</h2>
-        <div class="blog-post">
-            <h3>Quadruped Progress Update</h3>
-            <p>December 2025: Lidar integration complete. Testing navigation next.</p>
-        </div>
-        <div class="blog-post">
-            <h3>Humanoid Design Insights</h3>
-            <p>Exploring AI camera features for better interaction.</p>
-        </div>
-        <!-- Add more posts as separate HTML files or here -->
-    </section>
-
-    <section id="forum">
-        <h2>Forum</h2>
-        <p>Discuss ideas, report issues, or collaborate.</p>
-        <a href="https://github.com/HeyImK/hi-forge/discussions" class="cta">Join Forum</a>
-    </section>
-
-    <section id="contribute">
-        <h2>Contribute</h2>
-        <p>Fork us on GitHub and get involved!</p>
-        <a href="https://github.com/HeyImK/hi-forge" class="cta">View Repo</a>
-    </section>
-
-    <section id="contact">
-        <h2>Contact Us</h2>
-        <form action="https://formspree.io/f/your-form-id" method="POST"> <!-- Replace with your Formspree ID -->
-            <label>Your email: <input type="email" name="email"></label>
-            <label>Message: <textarea name="message"></textarea></label>
-            <button type="submit" class="cta">Send</button>
-        </form>
     </section>
 
     <footer>
         <p>&copy; 2025 Hi-Forge. Open source forever. 3D model credits: pinguinoconpulgares (Sketchfab).</p>
     </footer>
-
-    <script>
-        // Smooth scrolling
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
-                });
-            });
-        });
-    </script>
 </body>
 </html>
