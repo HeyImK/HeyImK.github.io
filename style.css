@@ -1,9 +1,12 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
+
 body {
     margin: 0;
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Montserrat', sans-serif;
     background: #111;
     color: #eee;
     position: relative;
+    overflow-x: hidden;
 }
 
 .stars {
@@ -42,13 +45,14 @@ body {
 }
 
 header {
-    background: #000;
+    background: linear-gradient(to bottom, #000, #111);
     color: #fff;
     padding: 1rem;
     position: fixed;
     width: 100%;
     top: 0;
     z-index: 10;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.5);
 }
 
 nav {
@@ -62,6 +66,13 @@ nav {
 .logo {
     font-size: 1.5rem;
     font-weight: bold;
+    display: flex;
+    align-items: center;
+}
+
+.logo img {
+    height: 40px;
+    margin-right: 0.5rem;
 }
 
 ul {
@@ -73,6 +84,11 @@ ul {
 a {
     color: #fff;
     text-decoration: none;
+    transition: color 0.3s;
+}
+
+a:hover {
+    color: #4facfe;
 }
 
 .hero {
@@ -83,6 +99,12 @@ a {
     justify-content: center;
     text-align: center;
     color: #fff;
+    animation: fadeIn 1s ease-in;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
 }
 
 .hero-content {
@@ -94,40 +116,43 @@ h1 {
 }
 
 .cta {
-    background: #eee;
-    color: #111;
+    background: #4facfe;
+    color: #fff;
     padding: 0.5rem 1rem;
     border-radius: 5px;
     font-weight: bold;
+    transition: background 0.3s;
+}
+
+.cta:hover {
+    background: #00f2fe;
 }
 
 section {
     padding: 4rem 2rem;
     max-width: 1200px;
     margin: 0 auto;
+    animation: fadeIn 1s ease-in;
 }
 
-#robots {
-    background: rgba(255,255,255,0.05);
-}
-
-.robot-grid {
+.robot-grid, .sponsor-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 2rem;
 }
 
-.robot-card {
+.robot-card, .sponsor-card {
     background: #222;
     padding: 1rem;
     border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.5);
-    transition: transform 0.3s;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.5);
+    transition: transform 0.3s, box-shadow 0.3s;
     text-align: center;
 }
 
-.robot-card:hover {
-    transform: scale(1.05);
+.robot-card:hover, .sponsor-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.7);
 }
 
 .robot-img {
@@ -177,12 +202,15 @@ section {
     padding: 1rem;
     margin-bottom: 1rem;
     border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.5);
 }
 
 form {
     display: flex;
     flex-direction: column;
     gap: 1rem;
+    max-width: 600px;
+    margin: 0 auto;
 }
 
 input, textarea {
@@ -194,8 +222,9 @@ input, textarea {
 }
 
 footer {
-    background: #000;
+    background: linear-gradient(to top, #000, #111);
     color: #aaa;
     text-align: center;
     padding: 1rem;
+    box-shadow: 0 -2px 10px rgba(0,0,0,0.5);
 }
