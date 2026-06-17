@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Karthik Nair // Hardware</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Syne:wght@400;600;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #090909;
+    --text: #f0f0ed;
+    --text-muted: #555555;
+    --accent: #ff4500;
+    --border: #1f1f1f;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; cursor: none; }
+  
+  body {
+    background-color: var(--bg); color: var(--text);
+    font-family: 'Syne', sans-serif;
+    overflow-x: hidden; -webkit-font-smoothing: antialiased;
+    width: 100vw; max-width: 100%;
+  }
+
+  /* Grain overlay for raw texture */
+  .noise {
+    position: fixed; inset: 0; pointer-events: none; z-index: 9999; opacity: 0.04;
+    background: url('data:image/svg+xml;utf8,%3Csvg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg"%3E%3Cfilter id="n"%3E%3CfeTurbulence type="fractalNoise" baseFrequency="0.8" numOctaves="3" stitchTiles="stitch"/%3E%3C/filter%3E%3Crect width="100%25" height="100%25" filter="url(%23n)"/%3E%3C/svg%3E');
+  }
+
+  /* Base Typography */
+  a { color: inherit; text-decoration: none; }
+  .mono { font-family: 'JetBrains Mono', monospace; letter-spacing: -0.02em; }
+  .container { max-width: 1400px; margin: 0 auto; padding: 0 5vw; width: 100%; }
+
+  /* ---------------- Cursors & Hover Elements ---------------- */
+  .cursor-dot {
+    position: fixed; top: 0; left: 0; width: 6px; height: 6px;
+    background: var(--accent); border-radius: 50%;
+    transform: translate(-50%, -50%);
+    pointer-events: none; z-index: 10000;
+    transition: transform 0.1s ease-out;
+  }
+  
+  .cursor-ring {
+    position: fixed; top: 0; left: 0; width: 40px; height: 40px;
+    border: 1px solid rgba(255, 69, 0, 0.4); border-radius: 50%;
+    transform: translate(-50%, -50%);
+    pointer-events: none; z-index: 9999;
+    transition: width 0.3s, height 0.3s, border-color 0.3s;
+  }
+
+  .hover-image {
+    position: fixed; top: 0; left: 0;
+    width: 350px; height: 180px;
+    background-size: cover; background-position: center;
+    border-radius: 8px; z-index: 9998;
+    pointer-events: none; opacity: 0;
+    transform: translate(-50%, -50%) scale(0.8);
+    transition: opacity 0.4s ease, transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    box-shadow: 0 30px 60px rgba(0,0,0,0.5);
+    border: 1px solid var(--border);
+  }
+  .hover-image.active { opacity: 1; transform: translate(-50%, -50%) scale(1); }
+
+  /* ---------------- Nav ---------------- */
+  nav {
+    display: flex; justify-content: space-between; align-items: flex-start;
+    padding: 40px 0; border-bottom: 1px solid var(--border);
+  }
+  .nav-left p, .nav-right p { font-size: 12px; text-transform: uppercase; color: var(--text-muted); }
+  .nav-right { text-align: right; }
+  .magnetic { display: inline-block; transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1); }
+  .nav-right a { color: var(--text); padding: 10px 0; display: inline-block;}
+
+  /* ---------------- Hero ---------------- */
+  .hero { padding: 12vh 0 8vh; position: relative; width: 100%; }
+  
+  .hero h1 {
+    /* MATHEMATICALLY SAFE SCALING */
+    /* 8.5vw ensures 8 extremely wide letters fit perfectly in a 90vw container */
+    font-size: clamp(3rem, 8.5vw, 10rem); 
+    font-weight: 800; line-height: 0.9;
+    text-transform: uppercase; letter-spacing: -0.02em;
+    margin-bottom: 60px;
+    width: 100%;
+    word-break: keep-all; /* Absolutely prevents a word from slicing in half */
+  }
+
+  .hero-sub { display: flex; justify-content: space-between; align-items: flex-end; flex-wrap: wrap; gap: 40px; }
+  .hero-sub p { font-size: clamp(1.2rem, 2vw, 1.8rem); max-width: 600px; line-height: 1.4; font-weight: 600; }
+  .hero-sub .status {
+    font-size: 12px; color: var(--accent); text-transform: uppercase;
+    display: flex; align-items: center; gap: 10px;
+    border: 1px solid var(--border); padding: 8px 16px; border-radius: 50px;
+  }
+  .hero-sub .status::before {
+    content: ''; width: 8px; height: 8px; background: var(--accent); border-radius: 50%;
+    animation: blink 2s infinite;
+  }
+  @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0; } }
+
+  /* ---------------- Manifesto / About Section ---------------- */
+  .manifesto { padding: 120px 0; border-top: 1px solid var(--border); }
+  .section-label { font-size: 12px; text-transform: uppercase; color: var(--accent); margin-bottom: 40px; display: block; }
+  .manifesto h2 {
+    font-size: clamp(2rem, 4vw, 4rem); font-weight: 600;
+    line-height: 1.2; max-width: 1000px; color: var(--text-muted);
+    transition: color 0.5s ease;
+  }
+  .manifesto h2:hover { color: var(--text); }
+  .highlight { color: var(--text); font-weight: 800; }
+
+  /* ---------------- Projects ---------------- */
+  .projects { padding: 100px 0; border-top: 1px solid var(--border); }
+  .project-item {
+    border-bottom: 1px solid var(--border); display: block; position: relative;
+    padding: 60px 0; transition: padding 0.4s ease;
+  }
+  .project-item:first-of-type { border-top: 1px solid var(--border); }
+  
+  .project-link { display: flex; justify-content: space-between; align-items: center; width: 100%; }
+  .project-title {
+    font-size: clamp(2.5rem, 6vw, 5.5rem); font-weight: 800; text-transform: uppercase;
+    letter-spacing: -0.03em; margin: 0; color: var(--text-muted);
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), color 0.4s ease;
+    overflow-wrap: break-word; max-width: 70%;
+  }
+
+  .project-meta { text-align: right; display: flex; flex-direction: column; gap: 8px; }
+  .project-id { font-size: 12px; color: var(--accent); }
+  .project-desc { font-size: 14px; color: var(--text); max-width: 250px; font-weight: 500;}
+
+  .project-item:hover { padding-left: 2vw; padding-right: 2vw; }
+  .project-item:hover .project-title { transform: translateX(20px); color: var(--text); }
+
+  /* ---------------- Interactive Stack ---------------- */
+  .stack-section { padding: 150px 0; border-top: 1px solid var(--border); text-align: center; }
+  .stack-grid { display: flex; flex-wrap: wrap; justify-content: center; gap: 15px; margin-top: 60px; }
+  .stack-tag {
+    padding: 15px 30px; font-size: 14px; text-transform: uppercase;
+    border: 1px solid var(--border); border-radius: 100px;
+    background: transparent; color: var(--text-muted);
+    transition: all 0.3s ease;
+  }
+  .stack-tag:hover {
+    background: var(--text); color: var(--bg); border-color: var(--text);
+    transform: translateY(-5px); font-weight: bold;
+  }
+
+  /* ---------------- Footer, ASCII Donut & Quote ---------------- */
+  footer { padding: 100px 0 60px; text-align: center; border-top: 1px solid var(--border); width: 100%; overflow: hidden;}
+  
+  #ascii-art {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: clamp(6px, 1.2vw, 14px); 
+    line-height: 1.1;
+    color: var(--accent);
+    margin: 0 auto 20px;
+    font-weight: bold;
+    white-space: pre;
+    transition: color 0.4s ease, transform 0.4s ease;
+    display: inline-block;
+  }
+  
+  #ascii-art:hover {
+    color: var(--text);
+    transform: scale(1.1); 
+  }
+
+  /* The Aura Quote */
+  .aura-quote {
+    font-size: 11px;
+    color: var(--text-muted);
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    margin-bottom: 50px;
+    opacity: 0.6;
+    transition: opacity 0.3s ease;
+  }
+  .aura-quote:hover { opacity: 1; color: var(--text); }
+
+  .footer-links { display: flex; justify-content: center; gap: 40px; margin-top: 20px;}
+  .footer-links a { font-size: 14px; text-transform: uppercase; color: var(--text-muted); transition: color 0.3s; }
+  .footer-links a:hover { color: var(--accent); }
+
+  @media (max-width: 900px) {
+    .project-link { flex-direction: column; align-items: flex-start; gap: 20px; }
+    .project-title { max-width: 100%; }
+    .project-meta { text-align: left; }
+    .project-item:hover .project-title { transform: translateX(10px); }
+    .hover-image { display: none; }
+  }
+</style>
+</head>
+<body>
+
+<div class="noise"></div>
+
+<div class="cursor-dot" id="cursor-dot"></div>
+<div class="cursor-ring" id="cursor-ring"></div>
+<div class="hover-image" id="hover-image"></div>
+
+<div class="container">
+  <nav>
+    <div class="nav-left mono">
+      <p>Karthik Nair</p>
+      <p style="color: var(--text)">Hardware Eng.</p>
+    </div>
+    <div class="nav-right mono">
+      <p>System Online</p>
+      <a href="https://github.com/HeyImK" target="_blank" class="magnetic">GITHUB.COM/HEYIMK ↗</a>
+    </div>
+  </nav>
+
+  <section class="hero">
+    <h1>HARDWARE<br>&<br>SILICON.</h1>
+    <div class="hero-sub">
+      <p>Designing custom development boards, FPGA platforms, and embedded firmware from the ground up.</p>
+      <span class="status mono magnetic">Location: India</span>
+    </div>
+  </section>
+
+  <section class="manifesto">
+    <span class="section-label mono">01 // Architecture</span>
+    <h2>
+      I don't just write code. I design the <span class="highlight">circuitry</span> that runs it. My work bridges the gap between raw <span class="highlight">schematics</span> and embedded systems, shipping entirely as <span class="highlight">open-source hardware</span>.
+    </h2>
+  </section>
+
+  <section class="projects">
+    <span class="section-label mono">02 // Open Source Repositories</span>
+    
+    <div class="project-item" data-img="https://opengraph.githubassets.com/1/HeyImK/Hack-A-Charge-Module">
+      <a href="https://github.com/HeyImK/Hack-A-Charge-Module" target="_blank" class="project-link magnetic-target">
+        <h2 class="project-title">Hack-A-Charge</h2>
+        <div class="project-meta mono">
+          <span class="project-id">HAC-01 // POWER</span>
+          <span class="project-desc">USB-C PD power module for hardware hacking.</span>
+        </div>
+      </a>
+    </div>
+
+    <div class="project-item" data-img="https://opengraph.githubassets.com/1/HeyImK/smol32">
+      <a href="https://github.com/HeyImK/smol32" target="_blank" class="project-link magnetic-target">
+        <h2 class="project-title">smol32</h2>
+        <div class="project-meta mono">
+          <span class="project-id">SM-32 // RISC-V</span>
+          <span class="project-desc">Tiny Arduino Nano alternative via CH32V006.</span>
+        </div>
+      </a>
+    </div>
+
+    <div class="project-item" data-img="https://opengraph.githubassets.com/1/HeyImK/Vector-06">
+      <a href="https://github.com/HeyImK/Vector-06" target="_blank" class="project-link magnetic-target">
+        <h2 class="project-title">Vector-06</h2>
+        <div class="project-meta mono">
+          <span class="project-id">VEC-06 // WIRELESS</span>
+          <span class="project-desc">BL602 board with Wi-Fi, BLE 5.0 & battery mgt.</span>
+        </div>
+      </a>
+    </div>
+
+    <div class="project-item" data-img="https://opengraph.githubassets.com/1/HeyImK/Odin-u5--Dev-Board">
+      <a href="https://github.com/HeyImK/Odin-u5--Dev-Board" target="_blank" class="project-link magnetic-target">
+        <h2 class="project-title">Odin-u5</h2>
+        <div class="project-meta mono">
+          <span class="project-id">ODN-U5 // ARM</span>
+          <span class="project-desc">STM32U5 platform with IMU & Temp sensors.</span>
+        </div>
+      </a>
+    </div>
+
+    <div class="project-item" data-img="https://opengraph.githubassets.com/1/HeyImK/Quasar--FPGA-and-Microcontroller-Hybrid-Dev-Board">
+      <a href="https://github.com/HeyImK/Quasar--FPGA-and-Microcontroller-Hybrid-Dev-Board" target="_blank" class="project-link magnetic-target">
+        <h2 class="project-title">Quasar</h2>
+        <div class="project-meta mono">
+          <span class="project-id">QSR-01 // HYBRID</span>
+          <span class="project-desc">ECP5 FPGA + RP2350 microcontroller board.</span>
+        </div>
+      </a>
+    </div>
+
+  </section>
+
+  <section class="stack-section">
+    <span class="section-label mono" style="margin-bottom: 20px;">03 // Tooling & Stack</span>
+    <h2 style="font-size: clamp(2rem, 4vw, 3rem); text-transform: uppercase;">The Hardware Arsenal</h2>
+    <div class="stack-grid mono">
+      <div class="stack-tag magnetic">Lattice ECP5</div>
+      <div class="stack-tag magnetic">Raspberry Pi RP2350</div>
+      <div class="stack-tag magnetic">STM32U5</div>
+      <div class="stack-tag magnetic">BL602</div>
+      <div class="stack-tag magnetic">CH32V006</div>
+      <div class="stack-tag magnetic">PCB Layout</div>
+      <div class="stack-tag magnetic">Embedded C</div>
+      <div class="stack-tag magnetic">Firmware Engineering</div>
+      <div class="stack-tag magnetic">KiCad</div>
+    </div>
+  </section>
+
+  <footer>
+    <pre id="ascii-art" class="magnetic"></pre>
+    
+    <div class="aura-quote mono magnetic">
+      "We flattened a rock, trapped lightning inside it, and taught it to think."
+    </div>
+
+    <div class="footer-links mono">
+      <a href="https://github.com/HeyImK" target="_blank" class="magnetic">GITHUB / REPOS</a>
+    </div>
+  </footer>
+</div>
+
+<script>
+  // 1. Smooth Cursor Logic
+  const cursorDot = document.getElementById('cursor-dot');
+  const cursorRing = document.getElementById('cursor-ring');
+  const hoverImage = document.getElementById('hover-image');
+  
+  let mouseX = 0, mouseY = 0;
+  let ringX = 0, ringY = 0;
+  let imgX = 0, imgY = 0;
+
+  document.addEventListener('mousemove', (e) => {
+    mouseX = e.clientX;
+    mouseY = e.clientY;
+    
+    // Dot instantly follows mouse
+    cursorDot.style.left = mouseX + 'px';
+    cursorDot.style.top = mouseY + 'px';
+  });
+
+  function animateCursor() {
+    ringX += (mouseX - ringX) * 0.15;
+    ringY += (mouseY - ringY) * 0.15;
+    cursorRing.style.left = ringX + 'px';
+    cursorRing.style.top = ringY + 'px';
+
+    imgX += (mouseX - imgX) * 0.08;
+    imgY += (mouseY - imgY) * 0.08;
+    hoverImage.style.left = imgX + 'px';
+    hoverImage.style.top = imgY + 'px';
+
+    requestAnimationFrame(animateCursor);
+  }
+  animateCursor();
+
+  // 2. Cursor state changes on clickables
+  const clickables = document.querySelectorAll('a, .stack-tag, #ascii-art');
+  clickables.forEach(el => {
+    el.addEventListener('mouseenter', () => {
+      cursorRing.style.width = '60px';
+      cursorRing.style.height = '60px';
+      cursorRing.style.backgroundColor = 'rgba(255, 69, 0, 0.1)';
+      cursorDot.style.transform = 'translate(-50%, -50%) scale(0)';
+    });
+    el.addEventListener('mouseleave', () => {
+      cursorRing.style.width = '40px';
+      cursorRing.style.height = '40px';
+      cursorRing.style.backgroundColor = 'transparent';
+      cursorDot.style.transform = 'translate(-50%, -50%) scale(1)';
+    });
+  });
+
+  // 3. GitHub Project Image Floating Logic
+  const projects = document.querySelectorAll('.project-item');
+  projects.forEach(project => {
+    project.addEventListener('mouseenter', () => {
+      const imgUrl = project.getAttribute('data-img');
+      hoverImage.style.backgroundImage = `url(${imgUrl})`;
+      hoverImage.classList.add('active');
+    });
+    project.addEventListener('mouseleave', () => {
+      hoverImage.classList.remove('active');
+    });
+  });
+
+  // 4. Magnetic Physics for Elements
+  const magnetics = document.querySelectorAll('.magnetic');
+  magnetics.forEach(btn => {
+    btn.addEventListener('mousemove', (e) => {
+      const rect = btn.getBoundingClientRect();
+      const h = rect.width / 2;
+      const w = rect.height / 2;
+      const x = e.clientX - rect.left - h;
+      const y = e.clientY - rect.top - w;
+      btn.style.transform = `translate(${x * 0.2}px, ${y * 0.2}px)`;
+    });
+    btn.addEventListener('mouseleave', () => {
+      btn.style.transform = `translate(0px, 0px)`;
+    });
+  });
+
+  // 5. Interactive 3D ASCII Donut Math
+  const asciiPre = document.getElementById('ascii-art');
+  let A = 1, B = 1;
+  let rotationSpeed = 1;
+
+  // Speed up when you hover over the donut!
+  asciiPre.addEventListener('mouseenter', () => rotationSpeed = 3);
+  asciiPre.addEventListener('mouseleave', () => rotationSpeed = 1);
+
+  function renderAsciiDonut() {
+    let b = [];
+    let z = [];
+    A += 0.04 * rotationSpeed;
+    B += 0.02 * rotationSpeed;
+    let cA = Math.cos(A), sA = Math.sin(A),
+        cB = Math.cos(B), sB = Math.sin(B);
+    
+    for (let k = 0; k < 1760; k++) {
+      b[k] = k % 80 === 79 ? "\n" : " ";
+      z[k] = 0;
+    }
+    
+    for (let j = 0; j < 6.28; j += 0.07) {
+      let ct = Math.cos(j), st = Math.sin(j);
+      for (let i = 0; i < 6.28; i += 0.02) {
+        let sp = Math.sin(i), cp = Math.cos(i),
+            h = ct + 2,
+            D = 1 / (sp * h * sA + st * cA + 5),
+            t = sp * h * cA - st * sA;
+        
+        let x = 0 | (40 + 30 * D * (cp * h * cB - t * sB)),
+            y = 0 | (12 + 15 * D * (cp * h * sB + t * cB)),
+            o = x + 80 * y,
+            N = 0 | (8 * ((st * sA - sp * ct * cA) * cB - sp * ct * sA - st * cA - cp * ct * sB));
+        
+        if (y < 22 && y >= 0 && x >= 0 && x < 79 && D > z[o]) {
+          z[o] = D;
+          b[o] = ".,-~:;=!*#$@"[N > 0 ? N : 0];
+        }
+      }
+    }
+    asciiPre.innerHTML = b.join("");
+    requestAnimationFrame(renderAsciiDonut);
+  }
+  
+  renderAsciiDonut();
+</script>
+
+</body>
+</html>
